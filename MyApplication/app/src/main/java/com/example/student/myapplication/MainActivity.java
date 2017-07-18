@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +25,20 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //        .setAction("Action", null).show();
                 TextView textBox = (TextView) findViewById(R.id.textview);
                 textBox.setText(textBox.getText() == "Hello World" ? "Christian Russell"
                     : "Hello World"
+                );
+                Toast.makeText(getApplicationContext(), "Christian Says:\nBurned Bread == Best Toast", Toast.LENGTH_LONG).show();
+            }
+        });
+        Button fab2 = (Button)this.findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TextView textBox = (TextView) findViewById(R.id.textview);
+                textBox.setText(textBox.getText() == "Hello World" ? "Christian Russell"
+                        : "Hello World"
                 );
                 Toast.makeText(getApplicationContext(), "Christian Says:\nBurned Bread == Best Toast", Toast.LENGTH_LONG).show();
             }
