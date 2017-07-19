@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private int buttonPos = 0;
+    private static int moveDist = 50;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //fab.setX(getApplicationContext().getResources().getDisplayMetrics().widthPixels - 30);
         fab.setOnClickListener(new View.OnClickListener() {
             private int buttonPos = 0;
 
@@ -34,12 +36,12 @@ public class MainActivity extends AppCompatActivity {
                 if (buttonPos % 2 == 0) {
                     System.out.printf("%f", view.getX());
                     //view.setX(-view.getX();
-                    view.setX(getApplicationContext().getResources().getDisplayMetrics().widthPixels * (2/3));
+                    view.setX(getApplicationContext().getResources().getDisplayMetrics().widthPixels - moveDist - view.getWidth());
                     System.out.printf("%f", view.getX());
                 } else {
                     System.out.printf("%f", view.getY());
                     //view.setY(-view.getY());
-                    view.setX(getApplicationContext().getResources().getDisplayMetrics().widthPixels / 3);
+                    view.setX(moveDist);
                     System.out.printf("%f", view.getY());
                 }
                 buttonPos ++;
